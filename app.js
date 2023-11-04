@@ -1,7 +1,5 @@
 const express = require('express');
-
 const app=express();
-
 
 require('dotenv').config();
 
@@ -12,15 +10,17 @@ app.use(express.json());
 const todoRoutes=require('./routes/todos');
 
 
+app.use("/api/v1",todoRoutes);
+
 app.listen(PORT,()=>{
     console.log("Server is started on "+PORT);
 })
-
 
 const dbConnect=require("./config/database");
 dbConnect();
 
 app.get("/",(req,res)=>{
-    res.send('<h3>Jay shri ganeshay namay 🙏</h3>')
+    res.send('<h1>Jay shri ganeshay namay 🙏</h1>')
 })
+
 
